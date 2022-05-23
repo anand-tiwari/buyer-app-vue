@@ -35,7 +35,6 @@ const mutations = {
 const actions = {
   async [MutationTypes.FETCH_BUYER]({ commit }) {
     const response = await getBuyers();
-    console.log(response.data.buyers);
     commit(MutationTypes.SET_BUYER, response.data.buyers);
   },
   async [MutationTypes.ADD_BUYER]({ commit }, data) {

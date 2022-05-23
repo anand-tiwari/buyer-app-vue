@@ -19,10 +19,10 @@
     <div class="table-tr action">
       <div v-if="!isEdited" class="action__update">
         <button @click="isEdited = !isEdited">
-          <span><font-awesome-icon icon="edit" /></span>
+          <span class="action__edit"><font-awesome-icon icon="edit" /></span>
         </button>
         <button @click="deleteBuyerData()">
-          <span><font-awesome-icon icon="trash" /></span>
+          <span class="action__delete"><font-awesome-icon icon="trash" /></span>
         </button>
       </div>
       <div class="action__update" v-else>
@@ -31,10 +31,12 @@
           :class="{ 'disable-btn': v$.buyerData.$invalid }"
           :disabled="v$.buyerData.$invalid"
         >
-          <span><font-awesome-icon icon="save" /></span>
+          <span class="action__save"><font-awesome-icon icon="save" /></span>
         </button>
         <button @click="clearChange()">
-          <span><font-awesome-icon icon="cancel" /></span>
+          <span class="action__cancel"
+            ><font-awesome-icon icon="cancel"
+          /></span>
         </button>
       </div>
     </div>
@@ -141,7 +143,7 @@ select:focus {
     flex-wrap: wrap;
   }
   span {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
   button {
     border: none;
@@ -149,6 +151,18 @@ select:focus {
     padding: 0.4rem;
     cursor: pointer;
     background-color: transparent;
+  }
+  &__edit {
+    color: $blue;
+  }
+  &__delete {
+    color: $red;
+  }
+  &__save {
+    color: $green;
+  }
+  &__cancel {
+    color: $sky-blue;
   }
 }
 
